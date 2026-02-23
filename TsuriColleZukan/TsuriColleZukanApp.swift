@@ -11,7 +11,7 @@ import SwiftUI
 struct TsuriColleZukanApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView()
+            ContentView()
         }
     }
 }
