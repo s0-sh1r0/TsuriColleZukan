@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1F19F4F72F4C44E0008B7551 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F19F4F62F4C44E0008B7551 /* ComposableArchitecture */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1F19F4932F4AF592008B7551 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F19F4F72F4C44E0008B7551 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = TsuriColleZukan;
 			packageProductDependencies = (
+				1F19F4F62F4C44E0008B7551 /* ComposableArchitecture */,
 			);
 			productName = TsuriColleZukan;
 			productReference = 1F19F4852F4AF590008B7551 /* TsuriColleZukan.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 1F19F47C2F4AF590008B7551;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1F19F4F52F4C44E0008B7551 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1F19F4862F4AF590008B7551 /* Products */;
 			projectDirPath = "";
@@ -578,6 +587,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F19F4F52F4C44E0008B7551 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.23.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F19F4F62F4C44E0008B7551 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F19F4F52F4C44E0008B7551 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F19F47D2F4AF590008B7551 /* Project object */;
 }
