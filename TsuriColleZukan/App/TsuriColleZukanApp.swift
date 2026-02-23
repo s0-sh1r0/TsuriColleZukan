@@ -1,17 +1,16 @@
-//
-//  TsuriColleZukanApp.swift
-//  TsuriColleZukan
-//
-//  Created by 牛田壮志郎 on 2026/02/22.
-//
-
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct TsuriColleZukanApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView()
+            RootView(
+                store: Store(
+                    initialState: RootFeature.State(),
+                    reducer: { RootFeature() }
+                )
+            )
         }
     }
 }

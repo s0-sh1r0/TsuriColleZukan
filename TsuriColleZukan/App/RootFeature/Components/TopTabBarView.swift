@@ -1,49 +1,11 @@
 import SwiftUI
 
-enum AppTab {
-    case home
-    case plan
-}
-
-struct RootView: View {
-    @State private var selectedTab: AppTab = .home
-    @State private var showModal = false
-
-    var body: some View {
-        ZStack {
-            Group {
-                switch selectedTab {
-                case .home:
-                    Color(.red).ignoresSafeArea()
-                        .overlay(Text("Home").font(.title))
-                case .plan:
-                    Color(.blue).ignoresSafeArea()
-                        .overlay(Text("Plan").font(.title))
-                }
-            }
-
-            VStack {
-                Spacer()
-                TopTabBar(
-                    selectedTab: $selectedTab,
-                    showModal: $showModal
-                )
-            }
-        }
-        .sheet(isPresented: $showModal) {
-            Text("Create View")
-                .font(.title)
-                .presentationDetents([.medium, .large])
-        }
-    }
-}
-
-struct TopTabBar: View {
-
+struct TopTabBarView: View {
     @Binding var selectedTab: AppTab
-    @Binding var showModal: Bool
+    let onPlusTapped: () -> Void
 
     private let fabSize: CGFloat = 60
+
     var body: some View {
         ZStack {
             TabBarShape()
@@ -61,7 +23,6 @@ struct TopTabBar: View {
                 }
 
                 Spacer()
-
                 Spacer().frame(width: fabSize + 16)
 
                 tabButton(
@@ -76,16 +37,8 @@ struct TopTabBar: View {
             .padding(.horizontal, 28)
             .frame(height: 60)
 
-            Button {
-                showModal = true
-            } label: {
-                Image(systemName: "plus")
-                    .font(.system(size: 22, weight: .bold))
-                    .foregroundStyle(.white)
-                    .frame(width: 45, height: 45)
-                    .background(Color.blue)
-                    .clipShape(Circle())
-                    .shadow(radius: 8)
+            TabBarPlusButtonView {
+                onPlusTapped()
             }
             .offset(y: -30)
         }
@@ -179,8 +132,4 @@ struct TabBarShape: Shape {
         p.closeSubpath()
         return p
     }
-}
-
-#Preview {
-    RootView()
 }
